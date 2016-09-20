@@ -49,52 +49,118 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
 	
-	var Card = React.createClass({
-	    displayName: 'Card',
+	// list container 
+	
+	// var ListContainer = React.createClass({
+	
+	// });
+	
+	
+	// card component
+	var Card = function Card(props) {
+	    return React.createElement(
+	        'div',
+	        { className: 'card' },
+	        props.text
+	    );
+	};
+	//list component
+	
+	var CardList = React.createClass({
+	    displayName: 'CardList',
+	
+	
+	    getInitialState: function getInitialState() {
+	        return {
+	            clicked: false
+	        };
+	    },
+	
+	    onAddSubmit: function onAddSubmit(event) {
+	        event.preventDefault(event);
+	        console.log("button has been clicked");
+	    },
+	    onAddInputChanged: function onAddInputChanged(event) {
+	        console.log("user typed into box");
+	    },
+	
+	    // render: function (){
+	    //     var list = [];
+	    //     for (var i=0; i<3; i++) {
+	    //         list.push(<Card />);
+	    //     }
+	
+	    //     return (
+	    //         <div className="card-list">
+	    //             {list}
+	    //         </div>
+	    //         );
+	
+	    // }
 	
 	    render: function render() {
 	        return React.createElement(
 	            'div',
 	            null,
-	            'This is my card'
-	        );
-	    }
-	
-	});
-	
-	var CardList = React.createClass({
-	    displayName: 'CardList',
-	
-	    render: function render() {
-	        var list = [];
-	        for (var i = 0; i < 3; i++) {
-	            list.push(React.createElement(Card, null));
-	        }
-	
-	        return React.createElement(
-	            'div',
-	            { className: 'card-list' },
-	            list
+	            React.createElement(
+	                'div',
+	                { className: 'list' },
+	                this.props.listTitle
+	            ),
+	            React.createElement(
+	                'form',
+	                null,
+	                React.createElement('input', { type: 'text', onChange: this.onAddInputChanged, placeholder: 'type here please' }),
+	                React.createElement(
+	                    'button',
+	                    { className: 'btn btn-primary', onClick: this.onAddSubmit },
+	                    'Submit'
+	                )
+	            )
 	        );
 	    }
 	});
 	
-	var Boards = React.createClass({
-	    displayName: 'Boards',
+	//board component
 	
-	    render: function render() {
-	        var board = [];
-	        for (var i = 0; i < 3; i++) {
-	            board.push(React.createElement(CardList, null));
-	        }
-	        return React.createElement(
+	var Boards = function Boards() {
+	    //     render: function (){
+	    //       var board = [];
+	    //       for (var i=0; i<3; i++) {
+	    //             board.push(<CardList />);
+	    //         }
+	    //         return (
+	    //             <div className="board">
+	    //                 {board}
+	    //             </div>
+	    //             );
+	
+	    //   } 
+	
+	    var listTitle = ["List 1", "List 2"];
+	
+	    return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
 	            'div',
 	            { className: 'board' },
-	            board
-	        );
-	    }
-	
-	});
+	            'Board 1'
+	        ),
+	        React.createElement(
+	            'div',
+	            null,
+	            React.createElement(CardList, { listTitle: 'List 1' })
+	        ),
+	        React.createElement(
+	            'div',
+	            null,
+	            React.createElement(Card, { className: 'card', text: 'Card 1 Blah' }),
+	            React.createElement(Card, { className: 'card', text: 'Card 2 Blah' }),
+	            React.createElement(Card, { className: 'card', text: 'Card 3 Blah' })
+	        )
+	    );
+	};
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	    ReactDOM.render(React.createElement(Boards, null), document.getElementById('card'));

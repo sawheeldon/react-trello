@@ -1,0 +1,27 @@
+body {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+.card {
+  width: 400px;
+  text-align: center;
+  border: 2px solid black;
+  display: block;
+  padding: 1rem;
+}
+.list {
+  width: 400px;
+  text-align: center;
+  border: 2px solid black;
+  display: block;
+  padding: 1rem;
+}
+.board {
+  width: 400px;
+  text-align: center;
+  border: 2px solid black;
+  background: lightgray;
+  display: block;
+  padding: 1rem;
+}
