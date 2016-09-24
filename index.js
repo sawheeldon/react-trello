@@ -5,7 +5,11 @@ var ReactDOM = require('react-dom');
 // list container 
 
 // var ListContainer = React.createClass({
-    
+//     getInitialState: function() {
+//         return {
+//             clicked: false
+//         };
+//     },
 // });
 
 
@@ -33,20 +37,6 @@ var CardList = React.createClass({
             onAddInputChanged: function (event) {
                 console.log("user typed into box");  
             },
-            
-            // render: function (){
-                //     var list = [];
-                //     for (var i=0; i<3; i++) {
-                //         list.push(<Card />);
-                //     }
-                    
-                //     return (
-                //         <div className="card-list">
-                //             {list}
-                //         </div>
-                //         );
-                     
-                // }
     
     render: function(){
         return (
@@ -88,11 +78,13 @@ var Boards = function() {
             </div>
 
             <div>
-                <Card className="card" text="Card 1 Blah" />
-                
-                <Card className="card" text="Card 2 Blah" />
-                
-                <Card className="card" text="Card 3 Blah" />
+                <ul>
+                    <Card className="card" text="Card 1 Blah" />
+                    
+                    <Card className="card" text="Card 2 Blah" />
+                    
+                    <Card className="card" text="Card 3 Blah" />
+                </ul>
             </div>
         </div>
         );

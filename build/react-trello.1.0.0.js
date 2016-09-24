@@ -52,7 +52,11 @@
 	// list container 
 	
 	// var ListContainer = React.createClass({
-	
+	//     getInitialState: function() {
+	//         return {
+	//             clicked: false
+	//         };
+	//     },
 	// });
 	
 	
@@ -83,20 +87,6 @@
 	    onAddInputChanged: function onAddInputChanged(event) {
 	        console.log("user typed into box");
 	    },
-	
-	    // render: function (){
-	    //     var list = [];
-	    //     for (var i=0; i<3; i++) {
-	    //         list.push(<Card />);
-	    //     }
-	
-	    //     return (
-	    //         <div className="card-list">
-	    //             {list}
-	    //         </div>
-	    //         );
-	
-	    // }
 	
 	    render: function render() {
 	        return React.createElement(
@@ -155,9 +145,13 @@
 	        React.createElement(
 	            'div',
 	            null,
-	            React.createElement(Card, { className: 'card', text: 'Card 1 Blah' }),
-	            React.createElement(Card, { className: 'card', text: 'Card 2 Blah' }),
-	            React.createElement(Card, { className: 'card', text: 'Card 3 Blah' })
+	            React.createElement(
+	                'ul',
+	                null,
+	                React.createElement(Card, { className: 'card', text: 'Card 1 Blah' }),
+	                React.createElement(Card, { className: 'card', text: 'Card 2 Blah' }),
+	                React.createElement(Card, { className: 'card', text: 'Card 3 Blah' })
+	            )
 	        )
 	    );
 	};
